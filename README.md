@@ -20,6 +20,7 @@ Normally you would need an API-key in order to get access to APi's, but in this 
 In order to do so, navigate to yr-app.js and replace your github id inside:
 
 ´´´javascript
+
 const getCityByName = async(userInput) => {
 
     const url = `${proxyUrl}/https://www.yr.no/api/v0/locations/suggest?language=nb&q=${userInput}`;
