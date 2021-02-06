@@ -15,7 +15,7 @@ https://code.visualstudio.com/
 
 
 ## how to run
-Normally you would need an API-key in order to get access to APi's, but in this case you only need to identify your self by adding your email or github id in order to fetch weather forecast from Yr.no. Without this you might get shut out because it is important for them to have control over who is using their API's in case of overload of requests and you MUST identify your self with real email or github.
+Normally you would need an API-key in order to get access to APi's, but in this case you only need to identify your self by adding your email or github id inside the headers of the request in order to fetch weather forecast from Yr.no. Without this you might get shut out because it is important for them to have control over who is using their API's in case of overload of requests and you MUST identify your self with real email or github.
 
 In order to do so, navigate to yr-app.js and replace your github id inside:
 
@@ -31,13 +31,19 @@ In order to do so, navigate to yr-app.js and replace your github id inside:
             (read terms of service: https://developer.yr.no/doc/TermsOfService/),
             but you need to replace with your own id.
             */
-            "User-Agent": "rosso84.github.io https://github.com/Rosso84"
+            "User-Agent": "yourGithubName.github.io https://github.com/Rosso84"
         
         }
 
     });
     return await response.json();
     };
+´´´
+
+And same inside the headers of:
+
+´´´javascript
+    getForecasts()
 ´´´
 
 Next thing you need to do is to go to :
