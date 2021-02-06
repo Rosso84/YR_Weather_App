@@ -144,7 +144,7 @@ const getCityByName = async(userInput) => {
             (read terms of service: https://developer.yr.no/doc/TermsOfService/),
             but you need to replace with your own id.
             */
-            "User-Agent": "rosso84.github.io https://github.com/Rosso84"
+            "User-Agent": "yourGithubName.github.io https://github.com/YourGithubUserName"
         
         }
 
