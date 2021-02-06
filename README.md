@@ -3,18 +3,17 @@
 A basic app that fetches weather forecast using Yr.no's APi  with vanilla Javascript, Html and CSS.
 
 ## requirements
+
 You only need a text editor such as Atom or VsCode. Both is free, but i recommend the last one. 
-Atom: 
 
-https://atom.io/
+Atom: https://atom.io/
 
-VsCode:
-
-https://code.visualstudio.com/
+VsCode:  https://code.visualstudio.com/
 
 
 
 ## how to run
+
 Normally you would need an API-key in order to get access to APi's, but in this case you only need to identify your self by adding your email or github id inside the headers of the request in order to fetch weather forecast from Yr.no. Without this you might get shut out because it is important for them to have control over who is using their API's in case of overload of requests and you MUST identify your self with real email or github.
 
 In order to do so, navigate to yr-app.js and replace your github id inside:
@@ -43,7 +42,8 @@ In order to do so, navigate to yr-app.js and replace your github id inside:
 And same inside the headers of:
 
 ´´´javascript
-    getForecasts()
+    
+     getForecasts()
 ´´´
 
 Next thing you need to do is to go to :
