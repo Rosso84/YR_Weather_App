@@ -1,4 +1,17 @@
+//import {attributes} from './attributes'  fails
 
+
+
+
+/**
+ * To make things cleaner I started off to store these attributes in a separate file 
+ * (see attributes.js), but got import issues. 
+ * There are several solutions to this like adding type="module" inside <script>, 
+ * but then I got Cors issues (cross origin resources sharine). I didn't want to
+ * spend too much time on this just to organise my code, but for soultions see: 
+ * https://stackoverflow.com/questions/19059580/client-on-node-js-uncaught-referenceerror-require-is-not-defined 
+ * 
+ */
 var inputField = document.querySelector('.input_text');
 var searchButton = document.querySelector('.submit');
 var cityHeader = document.querySelector('#name');
@@ -31,10 +44,23 @@ var clouds5 = document.querySelector('.clouds5');
 
 
 /**
- We use the proxyUrl because browsers blocks standard requests that are not being done by yr.no them selves.
- So therefore we use cors (cross-origin-resource-sharing) through Herokus server first,
- which will accept all the data, and then returns it back to us. 
+ Yr.no's API url comes in 3 formats 
+ (see https://developer.yr.no/doc/locationforecast/HowTO/)
+ To fetch in json format we must use 'compact' in the url e.g:  
+ https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60&lon=11.
+ Using this does not require CORS (Cross Origin Resource Sharing), but
+ it requires you to provide geo positions 'lat' and 'long' for each area to fetch.
+ To illustrate this see api/example2/yr-api-compact.js.
+ To avoid using geo positions I used chrome devtools to monitor Yr.no's website to find their own 
+ url which receives location by city name. But here we need CORS.
+ 
+ I use the proxyUrl because browsers blocks standard requests that are not being done
+ by yr.no them selves and I did not want to use other soulutions like using Passport.
+ Using CORS through Herokus proxy server will accept all the data, and then return it back 
+ to us. So you need to do a request for permission to use their proxy at: 
+ https://cors-anywhere.herokuapp.com/corsdemo    
 */      
+
 const proxyUrl = "https://cors-anywhere.herokuapp.com";
 
 const buttonHandler = async() => {
@@ -140,9 +166,9 @@ const getCityByName = async(userInput) => {
     const response = await fetch(url, {
         headers: {
 
-             /*this header is required by Yr.no in order for them to track usages in case of overload
+            /*this header is required by Yr.no in order for them to track usages in case of overload
             (read terms of service: https://developer.yr.no/doc/TermsOfService/),
-            but you need to replace with your own id.
+            but you need to replace with your own id (use a real one, not a fake one).
             */
             "User-Agent": "yourGithubName.github.io https://github.com/YourGithubUserName"
         
@@ -152,11 +178,17 @@ const getCityByName = async(userInput) => {
     return await response.json();
 };
 
+
+
 const getForecasts = async(url) => {
 
     const response = await fetch(url, {
         headers: {
-            "User-Agent": "rosso84.github.io https://github.com/Rosso84"
+            /*this header is required by Yr.no in order for them to track usages in case of overload
+            (read terms of service: https://developer.yr.no/doc/TermsOfService/),
+            but you need to replace with your own id (use a real one, not a fake one).
+            */
+            "User-Agent": "yourGithubName.github.io https://github.com/yourGithubName"
         }
     });
     return await response.json();

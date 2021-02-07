@@ -16,7 +16,7 @@ VsCode:  https://code.visualstudio.com/
 
 Normally you would need an API-key in order to get access to APi's, but in this case you only need to identify your self by adding your email or github id inside the headers of the request in order to fetch weather forecast from Yr.no. Without this you might get shut out because it is important for them to have control over who is using their API's in case of overload of requests and you MUST identify your self with real email or github.
 
-In order to do so, navigate to yr-app.js and replace your github id inside:
+In order to do so, navigate to /exampl1/yr-app.js and replace your github id inside:
 
 
 
