@@ -1,6 +1,6 @@
 # About YR_Weather_App
 
-A basic app that fetches weather forecast using Yr.no's APi  with vanilla Javascript, Html and CSS.
+A basic app that fetches weather forecast using Yr.no's APi  with vanilla Javascript, Html and CSS. There are 2 solutions inside this project, one using compact format which requires you to provide geolocations lat and lon, which is placed inside /frontend/api/example2 and another one solution that only receives a location by city name (example1). The app uses by default example1 but you need to manually do some changes. see under 'how to Run' 
 
 ## requirements
 
@@ -16,7 +16,7 @@ VsCode:  https://code.visualstudio.com/
 
 Normally you would need an API-key in order to get access to APi's, but in this case you only need to identify your self by adding your email or github id inside the headers of the request in order to fetch weather forecast from Yr.no. Without this you might get shut out because it is important for them to have control over who is using their API's in case of overload of requests and you MUST identify your self with real email or github.
 
-In order to do so, navigate to /exampl1/yr-app.js and replace your github id inside:
+In order to do so, navigate to and open fileinside /exampl1/yr-app.js and replace your github id inside:
 
 
 
@@ -48,7 +48,7 @@ Next thing you need to do is to go to :
 
 https://cors-anywhere.herokuapp.com/corsdemo
 
-And request for temporary access to Herokus CORS (Cross origin Resource Sharing) server by clicking on the 'request teporary access to the demo server'.
+And request for temporary access to Herokus CORS (Cross origin Resource Sharing) server by clicking on the 'request temporary access to the demo server'.
 
 Now all you need to do is finding the index.html file inside root folder and double click on it. Type a City and you should get the weather forecast with information about:
 
