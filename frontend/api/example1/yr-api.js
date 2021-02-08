@@ -7,8 +7,8 @@
  * To make things cleaner I started off to store these attributes in a separate file 
  * (see attributes.js), but got import issues. 
  * There are several solutions to this like adding type="module" inside <script>, 
- * but then I got Cors issues (cross origin resources sharine). I didn't want to
- * spend too much time on this just to organise my code, but for soultions see: 
+ * but then I got Cors issues (cross origin resources sharing). I didn't want to
+ * spend too much time on this just to organise my code, but for solutions see: 
  * https://stackoverflow.com/questions/19059580/client-on-node-js-uncaught-referenceerror-require-is-not-defined 
  * 
  */
@@ -49,13 +49,13 @@ var clouds5 = document.querySelector('.clouds5');
  To fetch in json format we must use 'compact' in the url e.g:  
  https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60&lon=11.
  Using this does not require CORS (Cross Origin Resource Sharing), but
- it requires you to provide geo positions 'lat' and 'long' for each area to fetch.
+ it requires you to provide geo positions 'lat' and 'lon' for each area to fetch.
  To illustrate this see api/example2/yr-api-compact.js.
  To avoid using geo positions I used chrome devtools to monitor Yr.no's website to find their own 
  url which receives location by city name. But here we need CORS.
  
  I use the proxyUrl because browsers blocks standard requests that are not being done
- by yr.no them selves and I did not want to use other soulutions like using Passport.
+ by yr.no them selves and I did not want to use other soulutions Passport.
  Using CORS through Herokus proxy server will accept all the data, and then return it back 
  to us. So you need to do a request for permission to use their proxy at: 
  https://cors-anywhere.herokuapp.com/corsdemo    
